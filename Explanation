@@ -1,0 +1,21 @@
+The code starts by importing the bpy module, which is the Blender Python API.
+
+The existing objects in the scene are cleared by deselecting and deleting all objects of type "MESH".
+
+A new scene is created using bpy.ops.scene.new().
+
+A camera and a sun lamp are added to the scene. The camera is positioned at (0, -5, 2), and the lamp is positioned at (0, 0, 5).
+
+The bpy.ops.mesh.primitive_cylinder_add() function is used to create a cylinder mesh representing the glass object. The cylinder has a radius of 1 and a depth of 0.05. It is positioned at (0, 0, 0).
+
+A new material named "GlassMaterial" is created, and the material's node tree is enabled for use with nodes.
+
+The glass material is configured by accessing the nodes and links of the material's node tree. The glass material is set to be fully transparent (Transmission input set to 1), with a white color (Base Color input set to (1, 1, 1, 1)), some roughness (Roughness input set to 0.1), and an index of refraction (IOR input) of 1.45, which corresponds to the refractive index of glass.
+
+The glass material is assigned to the glass object (glass_obj.data.materials.append(glass_mat)).
+
+The glass object is set as the active object and selected.
+
+The scene is rendered using bpy.ops.render.render(), and the rendered image is saved as a PNG file.
+
+Overall, this code sets up a simple scene with a glass object using Blender's Python API and renders it with the glass material applied. The resulting image will show the glass object with transparency and refraction, simulating the appearance of a glass material.
